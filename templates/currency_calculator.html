@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>Kalkulator walutowy</title>
+    {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <form method="POST">
+            <h1>KALKULATOR WALUTOWY</h1>
+            <br><label for="currency">Wybierz walutę: </label>
+                <select id="currency" name="currency">
+                    {% for code in codes %}
+                    <option value="{{ code }}" {% if code == currency %} selected="selected"{% endif %}>{{ code }}</option>
+                    {% endfor %}
+                </select>
+            <br><br><label for="amount">Podaj kwotę: </label>
+            <input type="text" id="amount" name="amount" value="{{request.form['amount']}}"">
+            <br><br><input type="submit" value="Wymień">
+            <br><br><label class="result" for="result">Wartość waluty po przeliczeniu: </label><label>{{ result }} zł</label>
+        </form>
+        {% endblock %}
+    </body>
+</html>
