@@ -11,7 +11,7 @@ data = response.json()
 
 rates = (data[0])["rates"]
 
-with open('/home/jagoda/Desktop/Kodilla/Python/currencies/currencies.csv', 'w', newline='') as csvfile:
+with open('/home/jagoda/Desktop/Kodilla/Python/currencies/currency_calculator.csv', 'w', newline='') as csvfile:
     currencywriter = csv.writer(csvfile, delimiter=';')
     currencywriter.writerow(['currency'] + ['code'] + ['bid'] + ['ask'])
     codes = []
