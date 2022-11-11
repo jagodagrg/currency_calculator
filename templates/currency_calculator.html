@@ -18,9 +18,9 @@
                     {% endfor %}
                 </select>
             <br><br><label for="amount">Podaj kwotę: </label>
-            <input type="text" id="amount" name="amount" value="{{request.form['amount']}}"">
+            <input type="text" id="amount" name="amount" value="{{request.form['amount']}}">
             <br><br><input type="submit" value="Wymień">
-            <br><br><label class="result" for="result">Wartość waluty po przeliczeniu: </label><label>{{ result }} zł</label>
+            <br><br><label class="result">Wartość waluty po przeliczeniu: </label><label>{{ result }} zł</label>
         </form>
         {% endblock %}
     </body>
