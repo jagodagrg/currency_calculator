@@ -6,12 +6,12 @@ import csv
 app = Flask(__name__)
 
 response = requests.get(
-    "http://api.nbp.pl/api/exchangerates/tables/C?format=json")
+    "http://api.nbp.pl/api/exchangerates/tables/C?format=json")ies
 data = response.json()
 
 rates = (data[0])["rates"]
 
-with open('/home/jagoda/Desktop/Kodilla/Python/currencies/currencies.csv', 'w', newline='') as csvfile:
+with open('/home/jagoda/Desktop/Kodilla/Python/currency_calculator/currencies.csv', 'w', newline='') as csvfile:
     currencywriter = csv.writer(csvfile, delimiter=';')
     currencywriter.writerow(['currency'] + ['code'] + ['bid'] + ['ask'])
     codes = []
