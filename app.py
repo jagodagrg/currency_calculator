@@ -24,6 +24,7 @@ def get_exchange_data():
 
 @app.route("/calculator/", methods=['GET', 'POST'])
 def calculate_exchange_rate():
+    exchange_rates = get_exchange_data()
     currency = None
     result = 0
     if request.method == 'POST':
@@ -34,5 +35,4 @@ def calculate_exchange_rate():
 
 
 if __name__ == '__main__':
-    exchange_rates = get_exchange_data()
     app.run(debug=True)
