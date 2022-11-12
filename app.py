@@ -13,13 +13,13 @@ def get_exchange_data():
     exchange_rates = {}
     for rate in rates:
         exchange_rates[rate['code']] = rate['ask']
-    return exchange_rates
     with open('currencies.csv', 'w', newline='') as csvfile:
         currencywriter = csv.writer(csvfile, delimiter=';')
         currencywriter.writerow(['currency', 'code', 'bid', 'ask'])
         for rate in rates:
             currencywriter.writerow(
                 [rate['currency'], rate['code'], str(rate['bid']), str(rate['ask'])])
+    return exchange_rates
 
 
 @app.route("/calculator/", methods=['GET', 'POST'])
