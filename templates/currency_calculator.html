@@ -4,23 +4,23 @@
     {% block head %}
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <title>Kalkulator walutowy</title>
+        <title>Currency calculator</title>
     {% endblock %}
     </head>
     <body>
         {% block content %}
         <form method="POST">
-            <h1>KALKULATOR WALUTOWY</h1>
-            <br><label for="currency">Wybierz walutę: </label>
+            <h1>CURRENCY CALCULATOR</h1>
+            <br><label for="currency">Select the currency: </label>
                 <select id="currency" name="currency">
                     {% for code in codes %}
                     <option value="{{ code }}" {% if code == currency %} selected="selected"{% endif %}>{{ code }}</option>
                     {% endfor %}
                 </select>
-            <br><br><label for="amount">Podaj kwotę: </label>
+            <br><br><label for="amount">Amount: </label>
             <input type="text" id="amount" name="amount" value="{{request.form['amount']}}">
             <br><br><input type="submit" value="Wymień">
-            <br><br><label class="result">Wartość waluty po przeliczeniu: </label><label>{{ result }} zł</label>
+            <br><br><label class="result">Amount in PLN: </label><label>{{ result }} zł</label>
         </form>
         {% endblock %}
     </body>
